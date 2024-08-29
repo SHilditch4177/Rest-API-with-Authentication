@@ -2,11 +2,14 @@ require("dotenv").config();
 const express=require("express");
 const SQLconnection = require("./db/connection");
 const User = require("./db/models/Usermodel");
-const userRoutes = require("./routes/userRoutes")
+const userRoutes = require("./routes/userRoutes");
+const cors=require("cors");
+
 
 const app=express();
 // this changes expres to app so it allows us to use it better when it comes to other documents
 app.use(express.json());
+app.use(cors());
 const port=process.env.PORT||5002;
 // this make sure we use the right port/set the port through the connection .env
 app.get("/health",(req,res)=>res.status(200).send("API is healthy"));

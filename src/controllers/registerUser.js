@@ -12,7 +12,7 @@ async function registerUser(req,res) {
             // This is the main put for thunderclient annd the requests such as the body and email, where it is written in thrunderclient, and this make request is added to the SQL Table, which is connected to the database which is clever cloud   
         );
         console.log(user);
-        res.status(200).send(`${req.body.FirstName} you're account has been successfully created.`)
+        res.status(200).json({message:`${req.body.FirstName} you're account has been successfully created.`})
     } catch (error) {
         console.log(error);
         res.status(415).json({message:"Database error",error:error})
